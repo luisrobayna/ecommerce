@@ -15,7 +15,7 @@ var hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-var getJSONData = function(url){
+var getJSONData =  function(url){
     var result = {};
     showSpinner();
     return fetch(url)
@@ -26,11 +26,11 @@ var getJSONData = function(url){
         throw Error(response.statusText);
       }
     })
-    .then(function(response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
+    .then(function(response){
+        result.status = 'ok';
+        result.data = response;
+        hideSpinner();
+        return result;
     })
     .catch(function(error) {
         result.status = 'error';
@@ -40,8 +40,15 @@ var getJSONData = function(url){
     });
 }
 
+let logeado = localStorage.getItem('logeado');
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+
+  if(window.location.href.search("index.html") !== -1 && !logeado){
+    window.location.href= "login.html"
+  }
+  
 });
