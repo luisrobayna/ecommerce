@@ -148,7 +148,7 @@
       var id_token = googleUser.getAuthResponse().id_token;
       console.log("ID Token: " + id_token);
       if (id_token){
-        localStorage.setItem('logeado','true');
+        localStorage.setItem('logeado','true');//guardamos en localStorage
         //localStorage.setItem('id_token',id_token)
         window.location = "index.html";
       }
