@@ -51,5 +51,12 @@ document.addEventListener("DOMContentLoaded", function(e){
   if(window.location.href.search("index.html") !== -1 && !logeado){
     window.location.href= "login.html"
   }
+
+//Poniendo nombre del usuario en el navegador
+  let nombre = document.getElementsByClassName('usuario');
+  nombre[0].innerHTML = localStorage.getItem('nombre');
+  //Estilos CSS
+  nombre[0].style.textTransform = "capitalize";
+  console.log(nombre)
   
 });

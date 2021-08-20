@@ -25,6 +25,15 @@
 }
 /*Fin del estilo en product.html*/
 
+
+/*Estilo para el nombre Usuario*/
+.usuario:hover{
+  color: #53C0FB;
+  text-decoration: none;
+}
+/*Fin del estilo para el nombre Usuario*/
+
+
 .jumbotron, .card-body, .container, .site-header{
     font-family: 'Raleway', serif !important;
 }
