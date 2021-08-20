@@ -148,7 +148,8 @@
       var id_token = googleUser.getAuthResponse().id_token;
       console.log("ID Token: " + id_token);
       if (id_token){
-        window.location = "index.html";
+        localStorage.setItem('id_token',id_token)
+        //window.location = "index.html";
       }
     }
   </script>
