@@ -52,6 +52,13 @@
       border: 0.5px solid lightslategray;
     }
 
+    .login-google{
+      width: 150px;
+      height: 50px;
+      margin-top: -57px;
+      margin-left: 520px;
+    }
+
     input[name="email"]{
        border-radius: 5px 5px 0px 0px;
        padding-left: 15px;
@@ -63,13 +70,23 @@
       padding-left: 15px;
     }
 
-    input[type="submit"]{
+    /*input[type="submit"]{
       margin-top: 50px;
       background-color: #0071ea;
       border: none;
       color: white;
       font-weight: bolder;
       
+    }*/
+
+    input[type="submit"] {
+        margin-top: 32px;
+        background-color: #0071ea;
+        border: none;
+        color: white;
+        font-weight: bolder;
+        width: 130px;
+        margin-left: -170px;
     }
 
     input[type="submit"]:hover{
@@ -129,7 +146,9 @@
       <input type="text" name="email" placeholder="Email address" id="email"><br>
       <input type="password" name="password" placeholder="Password" id="password"><br>
       <input type="submit" value="Sign in">
-      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <div class="login-google">
+        <div class="g-signin2" data-onsuccess="onSignIn" style="height: 50px;width: 150px;padding-top: 7px;"></div>
+      </div>
       <div id="error"></div>
     </form>
   </div>
