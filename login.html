@@ -138,6 +138,7 @@
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
   <script>
+    
     function onSignIn(googleUser) {
       // Useful data for your client-side scripts:
       var profile = googleUser.getBasicProfile();
@@ -151,7 +152,11 @@
       // The ID token you need to pass to your backend:
       var id_token = googleUser.getAuthResponse().id_token;
       console.log("ID Token: " + id_token);
+      return id_token;
     }
+    let  id = onSignIn();
+    console.log(id);
+
   </script>
 </body>
 </html>
