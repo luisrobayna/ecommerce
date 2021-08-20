@@ -169,6 +169,10 @@
       if (id_token){
         localStorage.setItem('logeado','true');//guardamos en localStorage
         //localStorage.setItem('id_token',id_token)
+        localStorage.setItem('nombre',profile.getName())
+        localStorage.setItem('email',profile.getEmail())
+        localStorage.setItem('apellido',profile.getFamilyName());
+        localStorage.setItem('imagen',profile.getImageUrl());
         window.location = "index.html";
       }
     }

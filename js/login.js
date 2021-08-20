@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             event.preventDefault()
         }else{
             localStorage.setItem('logeado','true');
+            localStorage.setItem('nombre',email.value);
         }
     })
 });
