@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             localStorage.setItem('logeado','false');
             avisoError.style.display = "block";
             avisoError.innerHTML = `<p>Por favor ingrese los datos correctamente</p>`;
+            quitarError(avisoError);
             email.value = "";
             password.value = "";
             event.preventDefault()

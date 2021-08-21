@@ -40,6 +40,12 @@ var getJSONData =  function(url){
     });
 }
 
+var quitarError = function(elemento){
+  setTimeout(()=>{
+    elemento.style.display = "none";
+  },4000)
+}
+
 let logeado = localStorage.getItem('logeado');
 //let id_token = localStorage.getItem('id_token');
 
@@ -57,6 +63,6 @@ document.addEventListener("DOMContentLoaded", function(e){
   nombre[0].innerHTML = localStorage.getItem('nombre');
   //Estilos CSS
   nombre[0].style.textTransform = "capitalize";
-  console.log(nombre)
+ 
   
 });

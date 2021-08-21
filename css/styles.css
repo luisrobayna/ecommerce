@@ -23,15 +23,55 @@
   float: left;
   margin-right: 30px;
 }
-/*Fin del estilo en product.html*/
-
 
 /*Estilo para el nombre Usuario*/
 .usuario:hover{
   color: #53C0FB;
   text-decoration: none;
 }
-/*Fin del estilo para el nombre Usuario*/
+
+/*Estilo para mensaje de error*/
+#error{
+  display: none;
+  text-align: center;
+  background-color: #f5bdc6;
+  color: #ffffff;
+  border: 3px solid rgb(209, 76, 76);
+  border-radius: 5px 5px 0px 0px;
+  width: 100%;
+  height: 50px;
+  margin: 0px auto;
+  position: fixed;
+  bottom: -100px;
+  right: 0px;
+  animation-name: animacionError;
+  animation-timing-function: linear;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  transition: all 2s;
+}
+
+#error p{
+  font-size: 25px;
+  line-height: 50px;
+}
+
+@keyframes animacionError{
+  from{
+    bottom: -100px;
+  }
+  to{
+    bottom: 0px;
+  }
+}
+
+
+/*Estilo para los filtros de la lista producto*/
+
+.filtrosP{
+  margin-top: 100px;
+
+}
 
 
 .jumbotron, .card-body, .container, .site-header{

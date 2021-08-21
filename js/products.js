@@ -2,44 +2,216 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-    function listProducts(url){
-        getJSONData(url)
-            .then(dato =>{
-                let informacion = dato.data;
-                let listaProduct = document.getElementById('listProduct');
-                informacion.forEach(element =>{
-                  
-                    listaProduct.innerHTML+= `
-                    <div class="row">
-                         <div class="list-group" id="cat-list-container">
-                            <a href="product-info.html" class="list-group-item list-group-item-action">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <img src="${element.imgSrc}" alt="${element.description}" class="img-thumbnail">
-                                    </div>
-                                    <div class="col">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h4 class="mb-1">${element.name}</h4>
-                                            <medium class="text-muted">${element.cost} ${element.currency}</small>
-                                        </div>
-                                        <p class="mb-1">${element.description}</p>
-                                    </div>
+    var listaProduct = document.getElementById('listProduct');
+    let avisoError = document.getElementById("error");
+
+    //////////////Funcion que me Imprime una lista de Productos//////////////
+    function imprimirLista(arreglo) {
+        arreglo.forEach(element => {
+            listaProduct.innerHTML += `
+            <div class="row">
+                 <div class="list-group" id="cat-list-container">
+                    <a href="product-info.html" class="list-group-item list-group-item-action">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="${element.imgSrc}" alt="${element.description}" class="img-thumbnail">
+                            </div>
+                            <div class="col">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">${element.name}</h4>
+                                    <medium class="text-muted">${element.cost} ${element.currency}</small>
                                 </div>
-                            </a>
-                         </div>
-                    </div>
-                    `
-                  
-                  
-                    /*/listaProduct.innerHTML+= `
-                         <div class="contProduct">
-                            <img class="imagen" src="${element.imgSrc}">
-                            <h2 class="nombre">${element.name}</h2>
-                            <p class="precio">Precio: ${element.cost} ${element.currency}</p>
-                            <p class="descripcion">Descripcion: ${element.description}</p>
-                        </div>`*/
-               })
+                                <p class="mb-1">${element.description}</p>
+                            </div>
+                        </div>
+                    </a>
+                 </div>
+            </div>
+            `
+        })
+    }
+
+    //////////////Funcion que me Imprime una lista de Productos de una URL//////////////
+    function listProducts(url) {
+        getJSONData(url)
+            .then(dato => {
+                let informacion = dato.data;
+                imprimirLista(informacion)
+            })
+    };
+
+    //////////////Funcion que me Imprime una lista de Productos Ordenados Descendente//////////////
+    function precioDESC(url) {
+        getJSONData(url)
+            .then(dato => {
+                let informacion = dato.data;
+                listaProduct.innerHTML = "";
+                informacion.sort(function (a, b) {
+                    return (b.cost - a.cost)
+                })
+                imprimirLista(informacion);
             })
     }
-   listProducts(PRODUCTS_URL)
+
+    //////////////Funcion que me Imprime una lista de Productos Ordenados Ascendente//////////////
+    function precioASC(url) {
+        getJSONData(url)
+            .then(dato => {
+                let informacion = dato.data;
+                listaProduct.innerHTML = "";
+                informacion.sort(function (a, b) {
+                    return (a.cost - b.cost)
+                })
+                imprimirLista(informacion);
+            })
+    }
+
+    //////////////Funcion que me Imprime una lista de Productos Ordenados Descendente por Relevancia //////////////
+    function relevanciaDESC(url) {
+        getJSONData(url)
+            .then(dato => {
+                let informacion = dato.data;
+                listaProduct.innerHTML = "";
+                informacion.sort(function (a, b) {
+                    return (b.soldCount - a.soldCount)
+                })
+                imprimirLista(informacion);
+            })
+    }
+
+    //////////////Funcion para ordenar por filtro con un rango de precio //////////////
+    function rangoFiltro(url) {
+        getJSONData(url)
+            .then(dato => {
+                let informacion = dato.data;
+                listaProduct.innerHTML = "";
+                let arregloFiltro = [];
+                if (cantMin.value == "" && cantMax.value != "") {
+                    informacion.forEach(element => {
+                        if (element.cost <= parseInt(cantMax.value)) {
+                            arregloFiltro.push(element)
+                        }
+                    })
+                    if (arregloFiltro.length == 0) {
+                        imprimirLista(informacion);
+                        avisoError.style.display = "block";
+                        avisoError.innerHTML = `<p>Lo sentimos no tenemos productos en ese rango de precio!!!</p>`;
+                        quitarError(avisoError);
+                        //alert("Lo sentimos no tenemos productos en ese rango de precio!!!")
+                    } else {
+                        arregloFiltro.sort(function (a, b) {
+                            return (b.cost - a.cost)
+                        })
+                        imprimirLista(arregloFiltro);
+                    }
+                } else if (cantMin.value != "" && cantMax.value == "") {
+                    informacion.forEach(element => {
+                        if (element.cost >= parseInt(cantMin.value)) {
+                            arregloFiltro.push(element)
+                        }
+                    })
+                    if (arregloFiltro.length == 0) {
+                        imprimirLista(informacion);
+                        avisoError.style.display = "block";
+                        avisoError.innerHTML = `<p>Lo sentimos no tenemos productos en ese rango de precio!!!</p>`;
+                        quitarError(avisoError);
+                       //alert("Lo sentimos no tenemos productos en ese rango de precio!!!")
+                    } else {
+                        arregloFiltro.sort(function (a, b) {
+                            return (a.cost - b.cost)
+                        })
+                        imprimirLista(arregloFiltro);
+                    }
+                } else if (cantMin.value != "" && cantMax.value != "") {
+                    if (parseInt(cantMin.value) > parseInt(cantMax.value)) {
+                        avisoError.style.display = "block";
+                        avisoError.innerHTML = `<p>El minimo no puede ser mayor que el maximo</p>`;
+                        quitarError(avisoError);
+                        //alert("El minimo no puede ser mayor que el maximo");
+                        imprimirLista(informacion)
+                    } else if (parseInt(cantMin.value) == parseInt(cantMax.value)) {
+                        avisoError.style.display = "block";
+                        avisoError.innerHTML = `<p>El minimo y el maximo no pueden ser iguales</p>`;
+                        quitarError(avisoError);
+                        //alert("El minimo y el maximo no pueden ser iguales");
+                        imprimirLista(informacion)
+                    } else {
+                        informacion.forEach(element => {
+                            if (element.cost >= parseInt(cantMin.value) && element.cost <= parseInt(cantMax.value)) {
+                                arregloFiltro.push(element)
+                            }
+                        })
+                        if (arregloFiltro.length == 0) {
+                            avisoError.style.display = "block";
+                            avisoError.innerHTML = `<p>Lo sentimos no tenemos productos en ese rango de precio!!!</p>`;
+                            quitarError(avisoError);
+                            //alert("Lo sentimos no tenemos productos en ese rango de precio!!!")
+                        } else {
+                            arregloFiltro.sort(function (a, b) {
+                                return (a.cost - b.cost)
+                            })
+                            imprimirLista(arregloFiltro);
+                        }
+                    }
+                } else {
+                    avisoError.style.display = "block";
+                    avisoError.innerHTML = `<p>Por favor ingese un rango de precio para poder usar el filtro!!!</p>`;
+                    quitarError(avisoError);
+                    //alert("Por favor ingese un rango de precio para poder usar el filtro!!!");
+                    imprimirLista(informacion)
+                }
+            })
+    }
+
+    //////////////Funcion para limpiar el filtro //////////////
+    function limpiarFiltro(url) {
+        getJSONData(url)
+            .then(dato => {
+                let informacion = dato.data;
+                listaProduct.innerHTML = "";
+                cantMin.value = "";
+                cantMax.value = "";
+                imprimirLista(informacion);
+            })
+    }
+
+
+    /************************INVOCACIONES DE LAS FUNCIONES ************************/
+
+    //Imprimimos la lista de productos de una URL
+    listProducts(PRODUCTS_URL);
+
+    //Ordenmos de mayor a menor por precio
+    let descendente = document.getElementById('sortDesc');
+    descendente.addEventListener('click', () => {
+        precioDESC(PRODUCTS_URL)
+    });
+
+    //Ordenmos de menor a mayor por precio
+    let ascendente = document.getElementById('sortAsc');
+    ascendente.addEventListener('click', () => {
+        precioASC(PRODUCTS_URL)
+    });
+
+    //Ordenamos por relevancia
+    let relevancia = document.getElementById('sortByCount');
+    relevancia.addEventListener('click', () => {
+        relevanciaDESC(PRODUCTS_URL)
+    });
+
+    //Ordenamos usando filtro por rango de precio
+    let cantMin = document.getElementById('rangeFilterCountMin');
+    let cantMax = document.getElementById('rangeFilterCountMax');
+    let filtro = document.getElementById('rangeFilterCount');
+
+    filtro.addEventListener('click', () => {
+        rangoFiltro(PRODUCTS_URL)
+    })
+
+    //Limpiamos el filtro de busqueda
+    let limpiar = document.getElementById('clearRangeFilter');
+
+    limpiar.addEventListener('click', () => {
+        limpiarFiltro(PRODUCTS_URL);
+    })
 })
