@@ -24,14 +24,13 @@
         <a class="py-2 d-none d-md-inline-block usuario" href="my-profile.html" ></a>
       </div>
     </nav>
-
-    <input type="search" id="busqueda"/>
-
+   
     <div class="container filtrosP">
+      <input type="search" id="busqueda" placeholder="Buscar articulo..."/><i class="fas fa-search"></i>
       <div class="row">
           <div class="col text-right">
-              <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
-                  <label class="btn btn-light active" id="sortAsc" >
+              <div class="btn-group btn-group-toggle mb-3 boton1" data-toggle="buttons">
+                  <label class="btn btn-light " id="sortAsc" >
                       <input type="radio" name="options" autocomplete="off" checked>Menor
                   </label>
                   <label class="btn btn-light" id="sortDesc" >
@@ -65,6 +64,7 @@
             </div>
           </div>
       </div>
+    </div>
 
     <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
     <div id="listProduct"></div>

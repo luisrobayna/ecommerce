@@ -210,77 +210,55 @@ document.addEventListener("DOMContentLoaded", function (e) {
     })
 
 
-
-   /* const deleteObjetosDuplicados = (arr) => {
-        const productoMap = arr.map(producto => {
-          return [producto.name, producto]
-        });
-      
-        return [...new Map(productoMap).values()];
-      }*/
-
-
     let busqueda = document.getElementById('busqueda');
     let arrPalabra = [];
     let buscar = "";
     let arrArtBusquda = [];
     let segundArreglo = [];
 
-    function buscarProduct(url){
+    function buscarProduct(url) {
         getJSONData(url)
-        .then(dato => {
-            let informacion = dato.data;
-            busqueda.addEventListener('keydown', (evento)=>{
-                if (evento.key == "Backspace"||evento.key == "Shift" ||evento.key == "CapsLock"){
-                    if(evento.key == "Backspace"){
-                        arrPalabra.pop();
-                        buscar = arrPalabra.join('');
-                        if(segundArreglo.length == 0){
-                            listaProduct.innerHTML= "";
-                            imprimirLista(informacion)
-                        }else{
-                            segundArreglo = [];
-                            informacion.forEach(element=>{
-                                if(element.name.search(buscar) != -1 || element.description.search(buscar) != -1){
-                                    segundArreglo.push(element)
-                                }
-                            })
-                            listaProduct.innerHTML="";
-                            imprimirLista(segundArreglo)
+            .then(dato => {
+                let informacion = dato.data;
+                busqueda.addEventListener('keydown', (evento) => {
+                    if (evento.key == "Backspace" || evento.key == "Shift" || evento.key == "CapsLock") {
+                        if (evento.key == "Backspace") {
+                            arrPalabra.pop();
+                            buscar = arrPalabra.join('');
+                            if (segundArreglo.length == 0) {
+                                listaProduct.innerHTML = "";
+                                imprimirLista(informacion)
+                            } else {
+                                segundArreglo = [];
+                                informacion.forEach(element => {
+                                    if (element.name.search(buscar) != -1 || element.description.search(buscar) != -1) {
+                                        segundArreglo.push(element)
+                                    }
+                                })
+                                listaProduct.innerHTML = "";
+                                imprimirLista(segundArreglo)
+                            }
                         }
+
+                    } else {
+                        arrPalabra.push(evento.key)
+                        buscar = arrPalabra.join('')
+                        informacion.forEach(element => {
+                            if (element.name.search(buscar) != -1 || element.description.search(buscar) != -1) {
+                                arrArtBusquda.push(element)
+                            }
+                        })
+                        listaProduct.innerHTML = "";
+                        imprimirLista(arrArtBusquda);
+                        segundArreglo = arrArtBusquda;
+                        arrArtBusquda = [];
                     }
-                    
-                }else{
-                    arrPalabra.push(evento.key)
-                    buscar = arrPalabra.join('')
-                    //console.log(evento.key)
-                    //console.log(arrPalabra);
-                    //console.log(buscar)
-                    informacion.forEach(element=>{
-                        if(element.name.search(buscar) != -1 || element.description.search(buscar) != -1){
-                            arrArtBusquda.push(element)
-                        }
-                    })
-                    //deleteObjetosDuplicados(arrArtBusquda);
-                    console.log(arrArtBusquda);
-                    listaProduct.innerHTML = "";
-                    imprimirLista(arrArtBusquda);
-                    segundArreglo = arrArtBusquda;
-                    arrArtBusquda = [];
-                    console.log(arrArtBusquda.length);
+
+                })
 
 
-                    console.log("Soy el segundo arreglo"+segundArreglo.length)
-                    
-                    
-                    
-                }
-                
+
             })
-            
-            
-            
-        })
     }
 
     buscarProduct(PRODUCTS_URL);
