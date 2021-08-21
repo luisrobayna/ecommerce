@@ -97,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
                         avisoError.style.display = "block";
                         avisoError.innerHTML = `<p>Lo sentimos no tenemos productos en ese rango de precio!!!</p>`;
                         quitarError(avisoError);
-                        //alert("Lo sentimos no tenemos productos en ese rango de precio!!!")
                     } else {
                         arregloFiltro.sort(function (a, b) {
                             return (b.cost - a.cost)
@@ -115,7 +114,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
                         avisoError.style.display = "block";
                         avisoError.innerHTML = `<p>Lo sentimos no tenemos productos en ese rango de precio!!!</p>`;
                         quitarError(avisoError);
-                       //alert("Lo sentimos no tenemos productos en ese rango de precio!!!")
                     } else {
                         arregloFiltro.sort(function (a, b) {
                             return (a.cost - b.cost)
@@ -127,14 +125,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
                         avisoError.style.display = "block";
                         avisoError.innerHTML = `<p>El minimo no puede ser mayor que el maximo</p>`;
                         quitarError(avisoError);
-                        //alert("El minimo no puede ser mayor que el maximo");
                         imprimirLista(informacion)
                     } else if (parseInt(cantMin.value) == parseInt(cantMax.value)) {
                         avisoError.style.display = "block";
                         avisoError.innerHTML = `<p>El minimo y el maximo no pueden ser iguales</p>`;
                         quitarError(avisoError);
-                        //alert("El minimo y el maximo no pueden ser iguales");
-                        imprimirLista(informacion)
+                        imprimirLista(informacion);
                     } else {
                         informacion.forEach(element => {
                             if (element.cost >= parseInt(cantMin.value) && element.cost <= parseInt(cantMax.value)) {
@@ -145,7 +141,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
                             avisoError.style.display = "block";
                             avisoError.innerHTML = `<p>Lo sentimos no tenemos productos en ese rango de precio!!!</p>`;
                             quitarError(avisoError);
-                            //alert("Lo sentimos no tenemos productos en ese rango de precio!!!")
                         } else {
                             arregloFiltro.sort(function (a, b) {
                                 return (a.cost - b.cost)
@@ -157,7 +152,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     avisoError.style.display = "block";
                     avisoError.innerHTML = `<p>Por favor ingese un rango de precio para poder usar el filtro!!!</p>`;
                     quitarError(avisoError);
-                    //alert("Por favor ingese un rango de precio para poder usar el filtro!!!");
                     imprimirLista(informacion)
                 }
             })
@@ -214,4 +208,80 @@ document.addEventListener("DOMContentLoaded", function (e) {
     limpiar.addEventListener('click', () => {
         limpiarFiltro(PRODUCTS_URL);
     })
+
+
+
+   /* const deleteObjetosDuplicados = (arr) => {
+        const productoMap = arr.map(producto => {
+          return [producto.name, producto]
+        });
+      
+        return [...new Map(productoMap).values()];
+      }*/
+
+
+    let busqueda = document.getElementById('busqueda');
+    let arrPalabra = [];
+    let buscar = "";
+    let arrArtBusquda = [];
+    let segundArreglo = [];
+
+    function buscarProduct(url){
+        getJSONData(url)
+        .then(dato => {
+            let informacion = dato.data;
+            busqueda.addEventListener('keydown', (evento)=>{
+                if (evento.key == "Backspace"||evento.key == "Shift" ||evento.key == "CapsLock"){
+                    if(evento.key == "Backspace"){
+                        arrPalabra.pop();
+                        buscar = arrPalabra.join('');
+                        if(segundArreglo.length == 0){
+                            listaProduct.innerHTML= "";
+                            imprimirLista(informacion)
+                        }else{
+                            segundArreglo = [];
+                            informacion.forEach(element=>{
+                                if(element.name.search(buscar) != -1 || element.description.search(buscar) != -1){
+                                    segundArreglo.push(element)
+                                }
+                            })
+                            listaProduct.innerHTML="";
+                            imprimirLista(segundArreglo)
+                        }
+                    }
+                    
+                }else{
+                    arrPalabra.push(evento.key)
+                    buscar = arrPalabra.join('')
+                    //console.log(evento.key)
+                    //console.log(arrPalabra);
+                    //console.log(buscar)
+                    informacion.forEach(element=>{
+                        if(element.name.search(buscar) != -1 || element.description.search(buscar) != -1){
+                            arrArtBusquda.push(element)
+                        }
+                    })
+                    //deleteObjetosDuplicados(arrArtBusquda);
+                    console.log(arrArtBusquda);
+                    listaProduct.innerHTML = "";
+                    imprimirLista(arrArtBusquda);
+                    segundArreglo = arrArtBusquda;
+                    arrArtBusquda = [];
+                    console.log(arrArtBusquda.length);
+
+
+                    console.log("Soy el segundo arreglo"+segundArreglo.length)
+                    
+                    
+                    
+                }
+                
+            })
+            
+            
+            
+        })
+    }
+
+    buscarProduct(PRODUCTS_URL);
 })

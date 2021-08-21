@@ -42,7 +42,7 @@ var getJSONData =  function(url){
 
 var quitarError = function(elemento){
   setTimeout(()=>{
-    elemento.style.display = "none";
+    elemento.style.display ="none"
   },4000)
 }
 
