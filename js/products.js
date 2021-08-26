@@ -169,53 +169,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             })
     }
 
-
-    /************************INVOCACIONES DE LAS FUNCIONES ************************/
-
-    //Imprimimos la lista de productos de una URL
-    listProducts(PRODUCTS_URL);
-
-    //Ordenmos de mayor a menor por precio
-    let descendente = document.getElementById('sortDesc');
-    descendente.addEventListener('click', () => {
-        precioDESC(PRODUCTS_URL)
-    });
-
-    //Ordenmos de menor a mayor por precio
-    let ascendente = document.getElementById('sortAsc');
-    ascendente.addEventListener('click', () => {
-        precioASC(PRODUCTS_URL)
-    });
-
-    //Ordenamos por relevancia
-    let relevancia = document.getElementById('sortByCount');
-    relevancia.addEventListener('click', () => {
-        relevanciaDESC(PRODUCTS_URL)
-    });
-
-    //Ordenamos usando filtro por rango de precio
-    let cantMin = document.getElementById('rangeFilterCountMin');
-    let cantMax = document.getElementById('rangeFilterCountMax');
-    let filtro = document.getElementById('rangeFilterCount');
-
-    filtro.addEventListener('click', () => {
-        rangoFiltro(PRODUCTS_URL)
-    })
-
-    //Limpiamos el filtro de busqueda
-    let limpiar = document.getElementById('clearRangeFilter');
-
-    limpiar.addEventListener('click', () => {
-        limpiarFiltro(PRODUCTS_URL);
-    })
-
-
-    let busqueda = document.getElementById('busqueda');
-    let arrPalabra = [];
-    let buscar = "";
-    let arrArtBusquda = [];
-    let segundArreglo = [];
-
+    //////////////Funcion para buscar producto //////////////
     function buscarProduct(url) {
         getJSONData(url)
             .then(dato => {
@@ -261,5 +215,50 @@ document.addEventListener("DOMContentLoaded", function (e) {
             })
     }
 
+    /************************INVOCACIONES DE LAS FUNCIONES ************************/
+
+    //Imprimimos la lista de productos de una URL
+    listProducts(PRODUCTS_URL);
+
+    //Ordenmos de mayor a menor por precio
+    let descendente = document.getElementById('sortDesc');
+    descendente.addEventListener('click', () => {
+        precioDESC(PRODUCTS_URL)
+    });
+
+    //Ordenmos de menor a mayor por precio
+    let ascendente = document.getElementById('sortAsc');
+    ascendente.addEventListener('click', () => {
+        precioASC(PRODUCTS_URL)
+    });
+
+    //Ordenamos por relevancia
+    let relevancia = document.getElementById('sortByCount');
+    relevancia.addEventListener('click', () => {
+        relevanciaDESC(PRODUCTS_URL)
+    });
+
+    //Ordenamos usando filtro por rango de precio
+    let cantMin = document.getElementById('rangeFilterCountMin');
+    let cantMax = document.getElementById('rangeFilterCountMax');
+    let filtro = document.getElementById('rangeFilterCount');
+
+    filtro.addEventListener('click', () => {
+        rangoFiltro(PRODUCTS_URL)
+    })
+
+    //Limpiamos el filtro de busqueda
+    let limpiar = document.getElementById('clearRangeFilter');
+
+    limpiar.addEventListener('click', () => {
+        limpiarFiltro(PRODUCTS_URL);
+    })
+
+    //Buscamos producto
+    let busqueda = document.getElementById('busqueda');
+    let arrPalabra = [];
+    let buscar = "";
+    let arrArtBusquda = [];
+    let segundArreglo = [];
     buscarProduct(PRODUCTS_URL);
 })
