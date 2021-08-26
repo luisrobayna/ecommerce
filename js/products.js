@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             .then(dato => {
                 let informacion = dato.data;
                 busqueda.addEventListener('keydown', (evento) => {
-                    if (evento.key == "Backspace" || evento.key == "Shift" || evento.key == "CapsLock") {
+                    if (evento.key == "Backspace" || evento.key == "Shift" || evento.key == "CapsLock" || evento.key == "Control" || evento.key == "Alt") {
                         if (evento.key == "Backspace") {
                             arrPalabra.pop();
                             buscar = arrPalabra.join('');

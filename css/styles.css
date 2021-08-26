@@ -1,7 +1,32 @@
+.contenedor{
+  position: relative;
+  width: 80%;
+  top: 50px;
+  left: 46px;
+  margin: 0px auto;
+  margin-top: -90px;
+  
+}
+
+.fila{
+  position: relative;
+  top: 86px;
+}
+
+.grupo-boton{
+  position: relative;
+  top: 40px;
+  left: 45px;
+}
+
+#sortAsc,#sortDesc,#sortByCount{
+  cursor: pointer;
+}
+
 /*Estilos para product.html*/
 
 #listProduct{
-  max-width: 1200px;
+  width: 90%;
   height: auto;
   margin: 0px auto;
   margin-top: 80px;
@@ -74,32 +99,22 @@
   left: 62px;
 }
 
+
+#perfil:hover, #logout:hover{
+  background-color: #53C0FB;
+}
+
 /*Estilo para la busqueda*/
 
 #busqueda{
- width: 450px;
- height: 50px;
- font-size: 20px;
- border-color: gray;
- background-color: #ffffff;
- border: 0.5px solid lightslategray;
- border-radius: 5px;
  position: relative;
- top: 93px;
- left: -121px;
+ top: 86px;
 }
 
 #busqueda:focus{
   outline: 4px solid rgba(128, 189, 255, 0.7);
 }
 
-.fa-search{
-  font-size: 30px;
-  color: gainsboro;
-  position: relative;
-  top: 98px;
-  left: -165px;
-}
 /*******************************************************/
 .jumbotron, .card-body, .container, .site-header{
     font-family: 'Raleway', serif !important;
