@@ -50,6 +50,22 @@
 }
 
 /*Estilo para el nombre Usuario*/
+/*.usuario{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}*/
+.item-sub-menu{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.desplegable{
+  padding: 0px;
+}
+
+.barra-divisora{
+  margin: 0px;
+}
+
 .usuario:hover{
   color: #53C0FB;
   text-decoration: none;
