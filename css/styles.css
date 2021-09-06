@@ -131,6 +131,87 @@
   outline: 4px solid rgba(128, 189, 255, 0.7);
 }
 
+
+/**********************Estilos para Comentarios Producto INFO****************************************/
+
+#comentarios{
+  margin-top: 20px;
+}
+
+#addComment{
+  background-color: #f0f0f0;
+}
+
+.descriptionComment{
+  margin-top: 20px;
+  width: 80%;
+}
+
+.descriptionComment:focus{
+  outline: 1px solid gray;
+}
+
+#submit{
+  margin-left: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  background-color: #242831;
+  color: white;
+  border-radius: 5px;
+}
+
+#submit:hover{
+  background-color: #6e7a92;
+}
+
+.comentContainer{
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  /*box-shadow: 10px 5px 0 2px #c3c3c3;*/
+  box-shadow: 10px 6px 0 2px #474545;
+  margin-top: -9px
+}
+
+.userAndScore{
+  color: #9bc2d5;
+  margin-left: 60px;
+  margin-top: 20px;
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+.userAndScore span{
+  float: right;
+}
+
+.userAndScore span:nth-child(1){
+  margin-right: 60px;
+}
+
+.checked{
+  color: orange;
+}
+
+.timeComment{
+  color: grey;
+  margin-top: -20px;
+  margin-left: 60px;
+  font-size: 14px;
+}
+
+.descriptionComment{
+  color: black;
+  margin-left: 60px;
+  padding-bottom: 10px;
+}
+
+span input{
+  width: 60px;
+  text-align: center;
+}
+
+
 /*******************************************************/
 .jumbotron, .card-body, .container, .site-header{
     font-family: 'Raleway', serif !important;
