@@ -24,8 +24,9 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="nav-link dropdown-toggle usuario" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-      <div class="dropdown-menu desplegable"  aria-labelledby="navbarDropdown">
+      <a class="nav-link dropdown-toggle usuario" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false"></a>
+      <div class="dropdown-menu desplegable" aria-labelledby="navbarDropdown">
         <a class="dropdown-item item-sub-menu" id="perfil" href="my-profile.html">Perfil</a>
         <div class="dropdown-divider barra-divisora"></div>
         <a class="dropdown-item item-sub-menu" id="logout" href="login.html">Cerrar sesion</a>
@@ -37,47 +38,50 @@
       <h3 id="productTitle"></h3>
       <hr class="my-3">
       <dl>
-          <dt>Descripción</dt>
-          <dd>
+        <dt>Descripción</dt>
+        <dd>
           <p id="productDescription"></p>
-          </dd>
+        </dd>
 
-          <dt>Categoría del Producto</dt>
-          <dd>
+        <dt>Categoría del Producto</dt>
+        <dd>
           <p id="productCriteria"></p>
-         
-          </dd>
 
-          <dt>Costo del producto</dt>
-          <dd>
-            <p id="costProduct"></p>
-          
-          </dd>
+        </dd>
 
-          <dt>Cantidad de productos vendidos</dt>
-          <dd>
-            <p id="productCount"></p>
-          </dd>
+        <dt>Costo del producto</dt>
+        <dd>
+          <p id="costProduct"></p>
 
-          <dt>Imágenes ilustrativas</dt>
-          <dd>
+        </dd>
+
+        <dt>Cantidad de productos vendidos</dt>
+        <dd>
+          <p id="productCount"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
           <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
           </div>
-          </dd>
+        </dd>
       </dl>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Volver a la lista de productos</a>
-     
-      <div id="comentarios">
-        <h2>Seccion de comentarios</h2>
-        <hr>
-      </div>
-
       
-  </div>
-  
+      <h2>Seccion de comentarios</h2>
+        <hr>
+      <form id="addComment" action="">
+        <p class="userAndScore">Comenta lo que piensas  <span>Score: <input type="number" id="cantStarts"></span></p>
+        <textarea placeholder="Descripciòn del comentario...." id="contentComment" class="descriptionComment"></textarea>
+        <input type="submit" value="Publicar" id="send">
+      </form>
+
+      <div id="comentarios">       
+      </div>
+    </div>
   </main>
 
-  
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">

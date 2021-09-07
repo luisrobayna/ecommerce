@@ -2,22 +2,22 @@ var category = {};
 
 function showImagesGallery(array){
 
-    let htmlContentToAppend = "";
+        let htmlContentToAppend = "";
 
-    for(let i = 0; i < array.length; i++){
-        let imageSrc = array[i];
+        for(let i = 0; i < array.length; i++){
+            let imageSrc = array[i];
 
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+            htmlContentToAppend += `
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+                </div>
             </div>
-        </div>
-        `
+            `
 
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+            document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+        }
     }
-}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
