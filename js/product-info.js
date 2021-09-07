@@ -91,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             <p class="descriptionComment">${textarea}</p>
         </div>
         `
-        
     }
 
     //Imprimimos la informacion del producto
