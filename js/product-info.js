@@ -117,6 +117,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         points.value = "";
         text.value = "";
         e.preventDefault()
+        let avisoComment = document.getElementById('alertComment');
+        avisoComment.innerHTML = `<p class="animated bounceOutDown slower" id="avisoComment">Comentario publicado!!!</p>`
         
     })
 

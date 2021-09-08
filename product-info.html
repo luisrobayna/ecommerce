@@ -12,7 +12,10 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/mdb.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  
+  <!--<link href="css/mdb.min.css" rel="stylesheet">-->
   <link href="css/styles.css" rel="stylesheet">
 </head>
 
@@ -71,13 +74,15 @@
       <h2>Seccion de comentarios</h2>
         <hr>
       <form id="addComment" action="">
-        <p class="userAndScore">Comentanos lo que piensas  <span>Score: <input type="number" id="cantStarts"></span></p>
-        <textarea placeholder="Descripciòn del comentario...." id="contentComment" class="descriptionComment"></textarea>
+        <p class="userAndScore">Comentanos lo que piensas  <span>Score: <input type="number" id="cantStarts" required></span></p>
+        <textarea placeholder="Descripciòn del comentario...." id="contentComment" class="descriptionComment" required></textarea>
         <input type="submit" value="Publicar" id="send">
       </form>
 
       <div id="comentarios">       
       </div>
+      <div id="alertComment">
+      </div>  
     </div>
   </main>
 
