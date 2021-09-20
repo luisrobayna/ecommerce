@@ -26,11 +26,11 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
       <a class="nav-link dropdown-toggle usuario" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false"></a>
       <div class="dropdown-menu desplegable" aria-labelledby="navbarDropdown">
         <a class="dropdown-item item-sub-menu" id="perfil" href="my-profile.html">Perfil</a>
+        <a class="dropdown-item item-sub-menu" id="perfil" href="cart.html">Carrito de compras</a>
         <div class="dropdown-divider barra-divisora"></div>
         <a class="dropdown-item item-sub-menu" id="logout" href="login.html">Cerrar sesion</a>
       </div>
@@ -67,6 +67,11 @@
         <dd>
           <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
           </div>
+        </dd>
+        
+        <dt>Productos relacionados</dt>
+        <dd>
+          <div id="relatedProducts"></div>
         </dd>
       </dl>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Volver a la lista de productos</a>

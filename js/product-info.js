@@ -17,11 +17,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 </div>
             </div>
             `
-    
             document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
         }
     }
-
 
     function productInfo(url) {
         getJSONData(url)
@@ -32,8 +30,39 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 costProduct.innerHTML = informacion.cost+ " "+informacion.currency;
                 productCount.innerHTML = informacion.soldCount;
                 productCriteria.innerHTML = informacion.category;
+                arrayRelated = informacion.relatedProducts;
+                productosRelacionados = [];
                 //Imprimimos array de imagenes
                 showImagesGallery(informacion.images);
+                getJSONData(PRODUCTS_URL)
+                    .then(info =>{
+                        let datos = info.data
+                        arrayRelated.forEach((element,index) =>{
+                            for(let i = 0; i< datos.length; i++){
+                                if (element == i){
+                                    productosRelacionados.push(datos[i])
+                                }
+                            }
+                        })
+                        productosRelacionados.forEach(element =>{
+                            relatedProducts.innerHTML +=`
+                            <div class="card">
+                                <a href="product-info.html">
+                                    <div><img class="imageCard" src="${element.imgSrc}"></div>
+                                    <div class="descriptionCard">
+                                        <h3>${element.name}</h3>
+                                        <p>${element.description}</p>
+                                    </div>
+                                    <div class="footerCard">
+                                            <div class="cost"><p>Precio<span>${element.cost} ${element.currency}</span></p></div>
+                                            <div class="sold"><p>Vendidos <span>${element.soldCount} </span></p></div>
+                                    </div>
+                                </a>
+                            </div>
+                            `
+                        })
+                        
+                    })
 
             })
     };
@@ -100,6 +129,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     let costProduct = document.getElementById('costProduct');
     let productCount = document.getElementById('productCount');
     let productCriteria = document.getElementById('productCriteria');
+    let relatedProducts = document.getElementById('relatedProducts');
     productInfo(PRODUCT_INFO_URL);
 
     //Imprimimos los comentarios del productos por medio de una URL
