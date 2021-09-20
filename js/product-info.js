@@ -21,6 +21,54 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     }
 
+    function carousel(array){
+        let htmlContentToAppend = ""
+        let htmlContentToAppend2 = ""
+        let htmlContentToAppend3 = ""
+        /*for (let i= 0;i<array.length;i++){
+            if (i==0){
+                htmlContentToAppend+=`
+                <li data-target="#carouselExampleIndicators" data-slide-to="${i}" class="active"></li>
+                `
+            }else{
+                console.log("ponemos los otros indicadores"+i)
+                htmlContentToAppend+=`
+                <li data-target="#carouselExampleIndicators" data-slide-to="${i}"></li>
+                `
+            }
+        }
+        carouselIndicador.innerHTML+=  htmlContentToAppend*/
+      
+        for (let i= 0;i<array.length;i++){
+            let imageSrc = array[i]
+            if (i== 0){
+                htmlContentToAppend2+=`
+                <div class="carousel-item active">
+                    <img src="${imageSrc}" class="d-block w-100" alt="...">
+                </div>
+                `
+            }else{
+                htmlContentToAppend2 +=`
+                <div class="carousel-item">
+                    <img src="${imageSrc}" class="d-block w-100" alt="...">
+                </div>
+                `
+            }
+        }
+        carouselInner.innerHTML+=  htmlContentToAppend2
+        htmlContentToAppend3 =`
+            <a class="carousel-control-prev botonAtras" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next botonSiguiente" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        `
+        carouselContainer.innerHTML+= htmlContentToAppend3
+    }
+
     function productInfo(url) {
         getJSONData(url)
             .then(dato => {
@@ -33,7 +81,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 arrayRelated = informacion.relatedProducts;
                 productosRelacionados = [];
                 //Imprimimos array de imagenes
-                showImagesGallery(informacion.images);
+                //showImagesGallery(informacion.images);
+                carousel(informacion.images)
                 getJSONData(PRODUCTS_URL)
                     .then(info =>{
                         let datos = info.data
@@ -130,6 +179,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
     let productCount = document.getElementById('productCount');
     let productCriteria = document.getElementById('productCriteria');
     let relatedProducts = document.getElementById('relatedProducts');
+    let carouselContainer = document.getElementById('carouselExampleIndicators');
+    //let carouselIndicador = document.getElementById('carouselIndicador');
+    let carouselInner = document.getElementById('carouselInner');
     productInfo(PRODUCT_INFO_URL);
 
     //Imprimimos los comentarios del productos por medio de una URL
