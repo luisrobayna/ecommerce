@@ -11,7 +11,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
+  <script src="https://kit.fontawesome.com/0ad95c2b77.js" crossorigin="anonymous"></script>
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -31,6 +31,9 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -40,8 +43,9 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="nav-link dropdown-toggle usuario" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-      <div class="dropdown-menu desplegable"  aria-labelledby="navbarDropdown">
+      <a class="nav-link dropdown-toggle usuario" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false"></a>
+      <div class="dropdown-menu desplegable" aria-labelledby="navbarDropdown">
         <a class="dropdown-item item-sub-menu" id="perfil" href="my-profile.html">Perfil</a>
         <a class="dropdown-item item-sub-menu" id="perfil" href="cart.html">Carrito de compras</a>
         <div class="dropdown-divider barra-divisora"></div>
@@ -49,14 +53,7 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :) </h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -65,6 +62,22 @@
       <div></div>
     </div>
   </div>
+  <div class="container mt-5" id="productContainer">
+    <div id="tableHead">
+      <div class="product">
+        <p>PRODUCTO</p>
+      </div>
+      
+      <div>
+        <p>CANTIDAD</p>
+        <p>PRECIO</p>
+        <p>SUBTOTAL</p>
+      </div>
+    </div>
+
+    <div id="tableBody"></div>
+  </div>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>

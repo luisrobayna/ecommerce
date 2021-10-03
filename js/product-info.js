@@ -25,19 +25,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         let htmlContentToAppend = ""
         let htmlContentToAppend2 = ""
         let htmlContentToAppend3 = ""
-        /*for (let i= 0;i<array.length;i++){
-            if (i==0){
-                htmlContentToAppend+=`
-                <li data-target="#carouselExampleIndicators" data-slide-to="${i}" class="active"></li>
-                `
-            }else{
-                console.log("ponemos los otros indicadores"+i)
-                htmlContentToAppend+=`
-                <li data-target="#carouselExampleIndicators" data-slide-to="${i}"></li>
-                `
-            }
-        }
-        carouselIndicador.innerHTML+=  htmlContentToAppend*/
       
         for (let i= 0;i<array.length;i++){
             let imageSrc = array[i]
@@ -68,6 +55,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
         `
         carouselContainer.innerHTML+= htmlContentToAppend3
     }
+
+   /* async function probando(url){
+        let informacion = await getJSONData(url)
+        console.log("Funcion probando:",informacion.data)
+    }*/
+
 
     function productInfo(url) {
         getJSONData(url)
@@ -203,6 +196,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
         avisoComment.innerHTML = `<p class="animated bounceOutDown slower" id="avisoComment">Comentario publicado!!!</p>`
         
     })
-
 
 });
