@@ -503,119 +503,33 @@ a.custom-card:hover {
 
 
 /*************Estilos para pagina CART.html**********************/
-#tableHead{
-  width: 100%;
-  height: 80px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  font-family: 'Roboto', sans-serif;
-}
 
-
-#tableHead .product,
-#tableHead div p{
-  display: inline-block;
-  padding-right: 40px;
-  line-height: 63px;
+#methodSend input{
+  margin-left: 10px;
+  color: rgb(66, 66, 66);
+  border: none;
+  outline: none;
+  border-bottom: 2px solid black;
+  border-radius: 5px;
   letter-spacing: 2px;
-  
-}
-
-#tableHead .product p{
-  margin-left: 50px;
-}
-
-#tableHead div:nth-child(2){
-  width: 40%;
-  float: right;
-  
 }
 
 
-#tableBody{
-  width: 100%;
-  height: auto;
-  font-family: 'Roboto', sans-serif;
-  margin-top: 0px;
-}
-
-#tableBody .productRow{
-  width: 100%;
-  height: 130px;
-  border-bottom: 1px solid black;
-  
-}
-
-#tableBody .productRow:hover{
-  background-color: #f0f0f0;
-}
-
-.productRow div{
-  display: inline-block;
-  width: 49%;
-}
-
-.productRow div:nth-child(2) p:nth-child(1){
-  padding-left: 125px;
-}
-
-.productRow div:nth-child(2) p:nth-child(2),
-.productRow div:nth-child(2) p:nth-child(3){
-  padding-left: 39px;
-}
-
-.productRow div img{
-  width: 130px;
-  height: 100px;
-  margin-left: 44px;
-  margin-top: 16px;
-}
-.productRow div p{
-  display: inline-block;
-}
-
-.productRow div:nth-child(1) p{
-  font-size: 18px;
-  margin-left: 40px;
-}
-
-.productRow p i{
-  color: gray;
-}
-
-.productRow p i:hover{
-  color: black;
-  cursor: pointer;
-}
-
-.subtotal{
-  text-align: right;
-  margin-top: 20px;
-  margin-right: 80px;
-}
-
-.total{
-  display: inline-block;
-  margin-left: 823px;
-  padding: 0px 20px;
-  font-size: 30px;
-  font-weight: bold;
-  color: orange;
-  border-bottom: 1px solid #c4c4c4;
-}
 button{
-  float: right;
+  float: left;
   font-size: 20px;
   border: none;
   border-radius: 4px;
   padding: 10px;
-  background-color: #E96136;
+  background-color: #0087F7;
   color: white;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 button:hover{
   transition: all 300ms;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 input[type="number"]
@@ -625,11 +539,414 @@ input[type="number"]
     -moz-appearance:textfield !important;
 }
 
+
+#alertSend{
+  width: 250px;
+  height: 50px;
+  background-color: greenyellow;
+  color: white;
+  line-height: 50px;
+  text-align: center;
+  border: 1px solid darkgreen;
+  border-radius: 5px;
+  position: fixed;
+  top: 60px;
+  right: 0px;
+
+}
+
+
+
+/**********************************FORMAS DE PAGO****************************/
+
+#methodPurchase{
+  color: black;
+  width: 100%;
+  display: inline-block;
+}
+
+.fa-chevron-circle-right{
+  font-size: 20px;
+  color: black;
+}
+
+#transferCard .fab{
+  color: black;
+  font-size: 70px;
+  margin-left: 30px;
+}
+
+.downArrow{
+  transform: rotate(90deg);
+  color: #0087F7;
+}
+
+#transferCard div{
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#transferCard div label{
+  margin-left: 30px;
+  line-height: 20px;
+}
+
+
+#transferCard div input,
+#transferBank input{
+  margin-left: 10px;
+  color: rgb(66, 66, 66);
+  border: none;
+  outline: none;
+  border-bottom: 2px solid black;
+  
+}
+
+#monthExpired,
+#yearExpired,
+#codeCard{
+  width: 60px;
+}
+
+#transferCard span{
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.infoCard,
+.infoBank{
+  max-width: 521px !important;
+  background-color: #0087F7;
+  border-radius: 5px;
+}
+
+.infoCard label,
+.infoBank label{
+  margin-bottom: 30px;
+  color: white;
+}
+
+.infoBank label{
+  margin-left: 30px;
+}
+
+.infoCard label:nth-child(1),
+.infoBank label:nth-child(1){
+  margin-top: 30px;
+}
+
+.infoCard input,
+.infoBank input{
+  color: whitesmoke !important;
+  border-radius: 5px;
+  background-color: rgba(0, 135, 247, 1);
+}
+
+
+
+#monthExpired::placeholder,
+#yearExpired::placeholder,
+#nameCard::placeholder,
+#numberCard::placeholder,
+#codeCard::placeholder,
+#numberBank::placeholder,
+#ownerBank::placeholder{
+  color: white;
+  letter-spacing: 2px;
+}
+
+#transferBank{
+  width: 100%;
+  margin-top: 20px;
+}
+
+#transferBank select{
+  width: 150px;
+  background-color: #158ff3;
+  color: white;
+  border: none;
+  outline: none;
+  border: 2px solid #1d7bc7;
+  border-radius: 5px;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+
+
+#totalEnvio{
+  display: inline-block;
+  width: 350px;
+  position: absolute;
+  top: 826px;
+  right: 2px;
+}
+
+#totalEnvio p:nth-child(1),
+#totalEnvio p:nth-child(3){
+  text-align: right;
+  font-size: 18px;
+  margin-right: 60px;
+}
+
+#totalEnvio p:nth-child(3){
+  margin-right: 94px;
+}
+#totalEnvio p:nth-child(2){
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  margin-top: -35px;
+  margin-left: 180px;
+  margin-bottom: 25px;
+  font-size: 60px;
+}
+
+
+#totalEnvio p:nth-child(4){
+  text-align: right;
+  color: orange;
+  font-size: 30px;
+  margin-right: 30px;
+}
+
+#totalEnvio p span{
+  border-top: 1px solid black;
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@media (max-width:991px){
+  #totalEnvio{
+    right: 60px;
+    top: 826px;
+  }
+  
+}
+
+@media (max-width:767px){
+  #totalEnvio{
+    position: relative;
+    top: 21px;
+    right: -190px;
+  }
+}
+
+@media (max-width:540px){
+  #totalEnvio{
+    top: 21px;
+    right: -138px;
+  }
+}
+
+
+
+
+
+/**************ESTILOS DE PRUEBA PARA LA TABLA DE PRODUCTOS**********/
+
+
+#tableHead{
+  width: 100%;
+  height: 80px;
+  font-family: 'Roboto',sans-serif;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+#tableHead p{
+  display: inline-block;
+  width: 20%;
+  line-height: 80px;
+  margin-bottom: 0px;
+}
+
+#tableHead p:nth-child(1){
+  width: 30%;
+  margin-left: 20px;
+}
+
+#tableBody{
+  width: 100%;
+  height: auto;
+  font-family: 'Roboto',sans-serif;
+}
+
+#tableBody .productRow{
+  width: 100%;
+  height: 120px;
+  border-bottom: 1px solid black;
+}
+
+#tableBody .productRow:hover{
+  transition: all 300ms;
+  background-color: lightgrey;
+  
+}
+
+#tableBody .productRow div{
+  display: inline-block;
+  width: 60%;
+  height: 120px;
+  margin-bottom: 0px;
+  
+}
+
+#tableBody .productRow div:nth-child(1){
+  width: 30%;
+}
+
+#tableBody .productRow div:nth-child(1) img{
+  width: 130px;
+  height: 100px;
+  position: relative;
+  top: -64px;
+}
+
+#tableBody .productRow div:nth-child(1) p{
+  display: none;
+}
+
+#tableBody .productRow div:nth-child(2) p{
+  display: inline-block;
+  width: 20%;
+}
+
+.productRow div:nth-child(2) p:nth-child(1){
+  margin-left: 20px;
+  margin-top: 40px;
+}
+
+.productRow div:nth-child(2) p:nth-child(2){
+  margin-left: 40px;
+  position: relative;
+  top: -30px;
+}
+
+.productRow div:nth-child(2) p:nth-child(3){
+  margin-left: 50px;
+  position: relative;
+  top: -30px;
+}
+
 .cross{
-  margin-left: 60px;
+  position: relative;
+  top: -75px;
+  right: -325px;
   color: gray;
 }
+
 .cross:hover{
   color: black;
   cursor: pointer;
+}
+
+.fa-plus{
+  color: gray;
+  position: relative;
+  top: -33px;
+  left: 64px;
+}
+
+.fa-minus{
+  color: gray;
+  position: relative;
+  top: -19px;
+  left: 46px;
+  
+}
+
+.fa-minus:hover,
+.fa-plus:hover{
+  color: black;
+  cursor: pointer;
+}
+
+#subtotal{
+  color: #0087F7;
+  text-align: right;
+  font-family: "Roboto",sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+@media(max-width:520px){
+  .productRow div:nth-child(2) p:nth-child(3){
+    top: -100px;
+    left: 180px;
+  }
+
+  .cross{
+    top: -100px;
+    right: -205px;
+  }
+}
+
+
+@media (min-width:768px){
+  #tableBody .productRow div:nth-child(1) img{
+    top: -25px;
+  }
+
+  .fa-minus{
+    left: 67px;
+  }
+
+  .fa-plus{
+    top: -7px;
+    left: 2px;
+  }
+
+  .productRow div:nth-child(2) p:nth-child(2){
+    margin-left: 63px;
+  }
+
+  .cross{
+    top: -60px;
+    right: -40px;
+  }
+}
+
+@media (min-width:992px){
+  #tableBody .productRow div:nth-child(1) img{
+    top: 3px;
+  }
+
+  .fa-minus{
+    left: -16px;
+    top: 7px;
+  }
+  .productRow div:nth-child(2) p:nth-child(2){
+    top: -4px;
+    margin-left: 85px;
+  }
+
+  .productRow div:nth-child(2) p:nth-child(3){
+    top: -4px;
+    margin-left: 75px;
+  }
+
+  .cross{
+    top: -30px;
+    right: -76px;
+  }
+  
+  
+}
+
+@media (min-width:1200px){
+  #tableBody .productRow div:nth-child(1) p{
+    display: inline-block;
+    margin-left: 20px;
+  }
+  .productRow div:nth-child(2) p:nth-child(3){
+    margin-left: 100px;
+  }
 }

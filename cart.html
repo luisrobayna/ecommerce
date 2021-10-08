@@ -32,8 +32,10 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="css/mdb.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -53,7 +55,6 @@
       </div>
     </div>
   </nav>
-
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -63,26 +64,75 @@
     </div>
   </div>
   <div class="container mt-5" id="productContainer">
+
+
+
     <div id="tableHead">
-      <div class="product">
+
         <p>PRODUCTO</p>
-      </div>
-      
-      <div>
         <p>CANTIDAD</p>
         <p>PRECIO</p>
         <p>SUBTOTAL</p>
-      </div>
     </div>
 
     <div id="tableBody"></div>
-  </div>
+    
+    <hr>
+    <div id="methodSend">
+      <h2>Metodo de envio</h2>
+      <label for="direccion">Direccion:</label>
+      <input type="text" name="direccion" placeholder="Calle, ciudad..."><br>
+      <label for="pais">Pais:</label>
+      <input type="text" name="pais" placeholder="Pais de residencia..." ><br>
+      <label for="envio">Tipo de envio:</label><br>
+      <input type="radio" name="envio" value="15" class="methodSend">
+      <label for="Premium">Premium(2-5 dias)- Costo del 15% sobre el subtotal</label><br>
+      <input type="radio" name="envio" value="7" class="methodSend">
+      <label for="Premium">Express(5-8 dias)- Costo del 7% sobre el subtotal</label><br>
+      <input type="radio" name="envio" value="5" class="methodSend">
+      <label for="Premium">Standar(12 a 15 dias)- Costo del 5% sobre el subtotal</label><br>
+    </div>
+    <hr>
+    <div id="methodPurchase">
+      <h2>Formas de pago</h2>
 
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
+      <i class="fas fa-chevron-circle-right transferType"></i>
+
+      <label>Tarjetas de credito</label><br>
+      <div id="transferCard"></div>
+
+      <i class="fas fa-chevron-circle-right transferType"></i>
+
+      <label>Tansferencia bancaria</label>
+      <div id="transferBank"></div>
+
+      <div id="totalEnvio"></div>
+
+      <div>
+        <button id="sendPurchase">Realizar compra</button>
+      </div>
+      <div id="alertSend2"> 
+        
+      </div>  
+
+    </div>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      </div>
+    </footer>
+
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 
 </html>
