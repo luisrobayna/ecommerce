@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
               </a>
             </div>*/
             listaProduct.innerHTML+=`
-            <div class="row">
-                <div class="col-md-4">
+            
+                <div class="col">
                     <a href="categories.html" class="card mb-4 shadow-sm custom-card">
                         <img class="bd-placeholder-img card-img-top" src="${element.imgSrc}" alt="${element.description}">
                         <h3 class="m-3">${element.name}</h3>
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                         </div>
                     </a>
                 </div>
-            </div>
+            
             
             `
 
