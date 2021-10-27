@@ -1,0 +1,186 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+#profile{
+    width: 80%;
+    max-width: 1000px;
+    height: auto;
+    margin: 0px auto;
+    margin-top: 30px;
+}
+#profile_info{
+    width: 60%;
+    height: auto;
+    float: left;
+}
+
+#profile h1{
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#profile p, label{
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+#profile span {
+    margin-left: 10px;
+    font-size: 17px;
+    color: rgb(80, 73, 73);
+}
+
+#profile_image{
+    float: left;
+    width: 40%;
+    height: 300px;
+    text-align: center;
+}
+
+#profile_image #image_user{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid black;
+    border-radius: 100px;
+    box-shadow: 1px 1px 4px black, -1px -1px 4px black;
+}
+
+
+#profile_image p span{
+    color: rgb(80, 73, 73);
+    transition: all 300ms;
+    
+}
+
+#profile_image p span:hover{
+    cursor: pointer;
+    border-bottom: 1px solid rgb(90, 161, 189);
+    color: rgb(90, 161, 189);;
+}
+
+#update_profile{
+    margin-top: -30px;
+    box-shadow: 1px 1px 4px black, -1px -1px 4px black;
+}
+
+/************************Formulario para el update***********************/
+
+#profile_info input{
+    width: 80%;
+    height: 50px;
+    border: none;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+}
+
+
+#profile_info #confirm{
+    width: 160px;
+    height: 40px;
+    background-color: rgb(62, 202, 69);
+    color: white;
+    padding: 0px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    box-shadow: 1px 1px 2px black, -1px -1px 2px black;
+}
+
+#profile_info #confirm:hover{
+    cursor: pointer;
+    background-color: rgb(115, 219, 120);
+
+}
+
+
+/******************************Cajas de imagenes****************/
+
+#images_box{
+    display: none;
+    width: 400px;
+    height: 300px;
+    padding: 15px 0px;
+    padding-right: 25px;
+    margin-right: 100px;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    overflow: scroll;
+    overflow-x: hidden;
+    position: relative;
+    right: 50px;
+}
+
+#images_box img{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    object-fit: cover;
+    transition: all 300ms;
+    border: 1px solid rgb(158, 149, 149);
+    border-radius: 100px;
+
+}
+
+.fa-times-circle{
+    font-size: 25px;
+    position:absolute;
+    right: 10px;
+}
+
+.fa-times-circle:hover{
+    cursor: pointer;
+}
+
+
+#images_box .img:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    border: 1px solid black;
+    border-radius: 100px;
+    box-shadow: 1px 1px 4px black, -1px -1px 4px black;
+}
+
+
+@media (max-width: 860px){
+    #profile_image{
+        float: none;
+        display: block;
+        
+    }
+
+    #profile_info{
+        float: none;
+        display: block;
+        width: 100%;
+    }
+
+    #images_box {
+        width: 300px;
+        margin-left: 100px;
+        margin-bottom: 50px;
+    }
+
+    #images_box img{
+        width: 100px;
+        height: 100px;
+    }
+
+    #update_profile{
+        position: relative;
+        float: right;
+        top: -200px;
+    }
+
+
+}

@@ -8,9 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
-
+  <link rel="stylesheet" href="css/profile.css">
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
   <style>
     .bd-placeholder-img {
@@ -31,6 +34,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <script src="/js/my-profile.js"></script>
+  <script src="https://kit.fontawesome.com/0ad95c2b77.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -40,8 +45,9 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="nav-link dropdown-toggle usuario" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-      <div class="dropdown-menu desplegable"  aria-labelledby="navbarDropdown">
+      <a class="nav-link dropdown-toggle usuario" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false"></a>
+      <div class="dropdown-menu desplegable" aria-labelledby="navbarDropdown">
         <a class="dropdown-item item-sub-menu" id="perfil" href="my-profile.html">Perfil</a>
         <a class="dropdown-item item-sub-menu" id="perfil" href="cart.html">Carrito de compras</a>
         <div class="dropdown-divider barra-divisora"></div>
@@ -49,26 +55,72 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :) </h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+  <section id="profile">
+    <h1>Mi perfil</h1>
+    <div id="profile_info">
     </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    <div id="profile_image">
+      <img  src="https://i.ibb.co/f4btYjd/user-default.png" id="image_user">
+      <p id="edit_photo"><span>Editar <i class="fas fa-camera"></i></span></p>
+      <div id="images_box">
+        <div>
+          <img class="img" src="https://i.ibb.co/Q8pVV5M/avatar1.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/k9dpk8y/avatar2.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/1KF4Kvp/avatar3.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/DwcT9fC/avatar4.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/PrRQLbY/avatar5.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/dBTyh71/avatar6.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/nrxzjcV/avatar7.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/xsj420w/avatar8.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/rmGHLZ5/avatar9.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/fQ5D208/avatar10.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/D5hVMpk/avatar11.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/6Xd9zpP/avatar12.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/MZdcGjv/avatar13.png">
+        </div>
+        <div>
+          <img class="img" src="https://i.ibb.co/pQNMJWh/avatar14.png">
+        </div>
+  
+        <div>
+          <img class="img" src="https://i.ibb.co/f4btYjd/user-default.png">
+        </div>
+      </div>
+
     </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+    <div class="clearfix"></div>
+    <button id="update_profile">Editar Perfil</button>
+    
+
+  </section>
+
+
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -77,6 +129,8 @@
       <div></div>
     </div>
   </div>
+
+  
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>

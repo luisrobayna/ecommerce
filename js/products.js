@@ -8,6 +8,37 @@ document.addEventListener("DOMContentLoaded", function (e) {
     //////////////Funcion que me Imprime una lista de Productos//////////////
     function imprimirLista(arreglo) {
         arreglo.forEach(element => {
+
+
+
+            /*<div class="row">
+            <div class="col-md-4">
+              <a href="categories.html" class="card mb-4 shadow-sm custom-card">
+                <img class="bd-placeholder-img card-img-top"  src="img/cat1.jpg">
+                <h3 class="m-3">Autos (122) </h3>
+                <div class="card-body">
+                  <p class="card-text">Los mejores precios en autos 0 kilómetro, de alta y media gama.</p>
+                </div>
+              </a>
+            </div>*/
+            listaProduct.innerHTML+=`
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="categories.html" class="card mb-4 shadow-sm custom-card">
+                        <img class="bd-placeholder-img card-img-top" src="${element.imgSrc}" alt="${element.description}">
+                        <h3 class="m-3">${element.name}</h3>
+                        <medium class="text-muted">${element.cost} ${element.currency}</small>
+
+                        <div class="card-body">
+                        <p class="card-text">${element.description}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            `
+
+/*
             listaProduct.innerHTML += `
             <div class="row">
                  <div class="list-group" id="cat-list-container">
@@ -32,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     </a>
                  </div>
             </div>
-            `
+            `*/
         })
     }
 

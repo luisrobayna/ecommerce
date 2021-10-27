@@ -133,13 +133,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         for (let i = 0; i < cantidad.length; i++) {
             cantidad[i].addEventListener('keydown', (event) => {
+                
                 let arreglo = [cantidad[i].value]
+                
                 if (event.key == "Backspace") {
                     arreglo.pop()
                 } else {
                     arreglo.push(event.key)
                 }
+                console.log(arreglo,"EN EL ARREGLO")
                 let inputValue = parseInt(arreglo.join(""))
+                console.log(inputValue,"PASADO A STRING")
                 if (arreglo.length == 0) {
                     cantidad[i].value = ""
                     inputValue = 0
