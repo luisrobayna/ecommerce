@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             listaProduct.innerHTML+=`
             
                 <div class="col">
-                    <a href="categories.html" class="card mb-4 shadow-sm custom-card">
+                    <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
                         <img class="bd-placeholder-img card-img-top" src="${element.imgSrc}" alt="${element.description}">
                         <h3 class="m-3">${element.name}</h3>
                         <medium class="text-muted">${element.cost} ${element.currency}</small>
