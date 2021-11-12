@@ -81,9 +81,10 @@
     <div id="methodSend">
       <h2>Metodo de envio</h2>
       <label for="direccion">Direccion:</label>
-      <input type="text" name="direccion" placeholder="Calle, ciudad..."><br>
+      <input type="text" name="direccion" placeholder="Calle, ciudad..." id="address"><br>
       <label for="pais">Pais:</label>
-      <input type="text" name="pais" placeholder="Pais de residencia..." ><br>
+      <input type="text" name="pais" placeholder="Pais de residencia..." id="country" ><br>
+
       <label for="envio">Tipo de envio:</label><br>
       <input type="radio" name="envio" value="15" class="methodSend">
       <label for="Premium">Premium(2-5 dias)- Costo del 15% sobre el subtotal</label><br>
@@ -91,33 +92,116 @@
       <label for="Premium">Express(5-8 dias)- Costo del 7% sobre el subtotal</label><br>
       <input type="radio" name="envio" value="5" class="methodSend">
       <label for="Premium">Standar(12 a 15 dias)- Costo del 5% sobre el subtotal</label><br>
+      <p id="alertSendPurchase">Completa todos los datos para seleccionar metodo de envio</p>
     </div>
+    <div id="totalEnvio"></div>
+
     <hr>
     <div id="methodPurchase">
       <h2>Formas de pago</h2>
 
-      <i class="fas fa-chevron-circle-right transferType"></i>
-
-      <label>Tarjetas de credito</label><br>
-      <div id="transferCard"></div>
-
-      <i class="fas fa-chevron-circle-right transferType"></i>
-
-      <label>Tansferencia bancaria</label>
-      <div id="transferBank"></div>
-
-      <div id="totalEnvio"></div>
-
-      <div>
-        <button id="sendPurchase">Realizar compra</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#credit">
+        Tarjeta de credito
+      </button>
+      
+      <div class="modal fade" id="credit" tabindex="-1" role="dialog" aria-labelledby="creditCard" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="creditCard">Tarjeta de credito</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <span>Nombre: </span>
+              <input type="text" name="name" id="name" placeholder="Luis Miguel"><br>
+              <span>Numero de tarjeta: </span>
+              <input type="number" name="credit_number" id="credit_number" placeholder="123456789"><br>
+              <span>Expira: </span>
+              <input type="number" name="expireM" id="expireM" placeholder="MM"> /
+              <input type="number" name="expireY" id="expireY" placeholder="YY">
+              <span class="cvc">CVC/CVV</span>
+              <input type="number" name="cvc" id="cvc" placeholder="123">
+              <p id="modal_alert"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelCard">Cancelar</button>
+              <button type="button" class="btn btn-primary" id="confirmCard">Confirmar</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="alertSend2"> 
-        
-      </div>  
+     
 
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bank">
+        Transferencia bancaria
+      </button>
+      
+
+      <div class="modal fade" id="bank" tabindex="-1" role="dialog" aria-labelledby="transferBank" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="transferBank">Transferencia bancaria</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <span>Bancos: </span>
+
+              <select id="banks">
+                <option value="BBVA">BBVA</option>
+                <option value="itau">Itaú</option>
+                <option value="Santander">Santander</option>
+                <option value="Citibank">Citibank</option>
+                <option value="Scotiabank">Scotiabank</option>
+              </select><br>
+              
+              <span>Numero de cuenta: </span>
+              <input type="number" name="number_account" id="number_account" placeholder="1234567 123"><br>
+              <span>Nombre del titular: </span>
+              <input type="text" name="owner_name" id="owner_name" placeholder="Luis Miguel"><br>
+
+              <p id="modal_alert_bank"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelBank">Cancelar</button>
+              <button type="button" class="btn btn-primary" id="confirmBank">Confirmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <br>
+    
 
-    <footer class="text-muted">
+    <button type="button" class="btn " id="completePurchase" data-toggle="modal" data-target="#modalPurchase">
+      Realizar compra
+    </button>
+
+    <div class="modal fade" id="modalPurchase" tabindex="-1" role="dialog" aria-labelledby="purchase" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="purchase">Envio de compra</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modal-body">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <footer class="text-muted" id="footerCart">
       <div class="container">
         <p class="float-right">
           <a href="#">Volver arriba</a>

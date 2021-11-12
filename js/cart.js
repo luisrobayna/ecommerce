@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         cantidadInput(informacion)
         removeProduct(informacion)
         methodSend()
-        getCreditCard()
 
     }
 
@@ -222,128 +221,97 @@ document.addEventListener("DOMContentLoaded", function (e) {
         let porcentaje = 0
         for (let i = 0; i < typeSend.length; i++) {
             typeSend[i].addEventListener('click', () => {
-                if (typeSend[i].value == "15") {
-                    porcentaje = (total * 15 / 100)
-                } else if (typeSend[i].value == "7") {
-                    porcentaje = (total * 7 / 100)
-                } else {
-                    porcentaje = (total * 5 / 100)
-                }
-
-                let anterior = total
-                total = parseFloat(total + porcentaje)
-                totalEnvio.innerHTML = `
-                <p>Subtotal: ${anterior}$</p>
-                <p>+</p>
-                <p>Envio: ${porcentaje}$</p>
-                <p><span>Total: ${total}$</span></p>
-
-                `
-                total = anterior
-                
-            })
-        }
-    }
-
-
-    function getCreditCard() {
-        for (let i = 0; i < transferType.length; i++) {
-            transferType[i].addEventListener('click', () => {
-                if (i == 0) {
-                    transferType[i].classList.toggle('downArrow')
-
-                    if (transferType[1].classList.contains('downArrow')) {
-                        transferBank.innerHTML = "";
-                        transferType[1].classList.toggle('downArrow')
-                    }
-
-                    if (transferType[i].classList.contains('downArrow')) {
-                        transferCard.innerHTML = `
-                    
-                        <i class="fab fa-cc-visa"></i>
-
-                        <i class="fab fa-cc-mastercard"></i>
-                
-                        <i class="fab fa-cc-amazon-pay"></i><br>
-                        <div id="detailCard"></div>
-                        
-                        `
-                        let card = document.getElementsByClassName('fab');
-                        let detailCard = document.getElementById('detailCard')
-                        for (let j = 0; j < card.length; j++) {
-                            card[j].addEventListener("click", () => {
-                                if (card[j].style.color == "rgb(0, 135, 247)") {
-                                    card[j].style.color = "black"
-                                } else {
-                                    card[j].style.color = "#0087F7"
-                                }
-
-                                detailCard.innerHTML = `
-                                <div class="infoCard">
-                                    <label for="nameCard">Nombre</label>
-                                    <input type="text" name="nameCard" id="nameCard" placeholder="Luis Miguel Robayna"><br>
-                                    <label for="numberCard">Numero de tarjeta</label>
-                                    <input type="text" name="numberCard" id="numberCard" placeholder="123245687832"><br>
-                                    <label for="expiredCard">Expira</label>
-                                    <input type="text" name="monthExpired" id="monthExpired" placeholder="MM"><span>/</span>
-                                    <input type="text" name="yearExpired" id="yearExpired" placeholder="YY">
-                                    <label>CVC/CVV</label>
-                                    <input type="text" id="codeCard" placeholder="123">
-                                </div>
-                                `
-                            })
-                        }
-
+                if(address.value == "" || country.value == ""){
+                    alertSendPurchase.style.display = "block"
+                }else{
+                    alertSendPurchase.style.display = "none"
+                    if (typeSend[i].value == "15") {
+                        porcentaje = (total * 15 / 100)
+                    } else if (typeSend[i].value == "7") {
+                        porcentaje = (total * 7 / 100)
                     } else {
-                        transferCard.innerHTML = ""
-                        }
-
-                } else {
-                    transferType[i].classList.toggle('downArrow')
-
-                    if (transferType[0].classList.contains('downArrow')) {
-                        transferCard.innerHTML = "";
-                        transferType[0].classList.toggle('downArrow')
+                        porcentaje = (total * 5 / 100)
                     }
-
-                    if (transferType[i].classList.contains('downArrow')) {
-                        transferBank.innerHTML = `
-                        <div class="infoBank">
-                            <select name="banks">
-                                <option value="Itau">Itaù</option>
-                                <option value="Santander">Santander</option>
-                                <option value="BBVA" selected>BBVA</option>
-                                <option value="Citibank">Citibank</option>
-                                <option value="Scotiabank">Scotiabank </option>
-                            </select> <br>
-                            <label for="acountNumber">Numero de cuenta</label>
-                            <input type="text" name="acountNumber" placeholder="1234567 123" id="numberBank"><br>
-                            <label for="ownerName">Nombre del titular</label>
-                            <input type="text" name="ownerName" placeholder="Luis Miguel Robayna" id="ownerBank">
-                        </div>
+    
+                    let anterior = total
+                    total = parseFloat(total + porcentaje)
+                    totalEnvio.innerHTML = `
+                    <p>Subtotal: ${anterior}$</p>
+                    <p>+</p>
+                    <p>Envio: ${porcentaje}$</p>
+                    <p><span>Total: ${total}$</span></p>
+    
                     `
-                    } else {
-                        transferBank.innerHTML = ""
-                    }
-
-                }
+                    total = anterior
+                    confirmPurchase[0] = true
+                }                
             })
         }
-
     }
 
-    function sendPurchase(){
-        buttonSend.addEventListener('click',()=>{
-            alertSend2.innerHTML = `
-            <p id="alertSend" class="animated bounceOutDown slower">Compra Realizada</p>
-            `
-           
+
+    function creditCard(){
+        cancelCard.addEventListener('click',()=>{
+            name.value = ""
+            credit_number.value = ""
+            expireM.value = ""
+            expireY.value = ""
+            cvc.value = ""
+            modal_alert.innerHTML = ""
+            modal_alert.style.display = "none"
+        })
+
+        confirmCard.addEventListener('click',()=>{
+            if(name.value == "" || credit_number.value == "" || expireM.value == ""
+                || expireY.value == "" || cvc.value == ""){
+                    modal_alert.innerHTML= `
+                    <p class="alertMessagge">Por favor complete todos los datos</p>
+                    `
+                    modal_alert.style.display = "block"
+            }else{
+                confirmPurchase[1] = true
+                console.log(confirmPurchase)
+                confirmCard.setAttribute('data-dismiss','modal')
+            }
         })
     }
 
+    function bankTransfer(){
+        cancelBank.addEventListener('click',()=>{
+            number_account.value = ""
+            owner_name.value = ""
+            alert_bank.style.display = "none"
+        })
 
+        confirmBank.addEventListener('click',()=>{
+            if( number_account.value == "" || owner_name.value == ""){
+                alert_bank.innerHTML = `
+                <p class="alertMessagge">Por favor complete todos los datos</p>
+                `
+                alert_bank.style.display = "block"
+            }else{
+                confirmPurchase[1] = true;
+                confirmBank.setAttribute('data-dismiss','modal')
+            }
+        })
+    }
+
+    function completeTransaction(){
+        if(confirmPurchase[0] && confirmPurchase[1]){
+            modal_body.innerHTML= `
+            <p class="correct">Compra realizada exitosamente!! <i class="fas fa-check-circle"></i></p>
+            `
+        }else{
+            modal_body.innerHTML= `
+            <p class="error">Faltan completar datos para realizar la compra <i class="fas fa-times-circle"></i></p>
+            `
+        }
+    }
+
+
+    var confirmPurchase = [false,false]
     let CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json"
-    let CART2_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/654.json"//desafiate
+    let CART2_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/654.json"
     let tableBody = document.getElementById('tableBody');
     getCart(CART2_INFO_URL)
     let cantidad = document.getElementsByClassName('cantidad')
@@ -352,11 +320,28 @@ document.addEventListener("DOMContentLoaded", function (e) {
     let subtotalColumna = document.getElementsByClassName('subtotalColumna');
     let cross = document.getElementsByClassName('cross');
     let typeSend = document.getElementsByClassName('methodSend')
-    let transferCard = document.getElementById('transferCard');
-    let transferBank = document.getElementById('transferBank');
-    let transferType = document.getElementsByClassName('transferType')
     let totalEnvio = document.getElementById('totalEnvio');
-    let buttonSend = document.getElementById('sendPurchase')
-    let alertSend = document.getElementById('alertSend2');
-    sendPurchase()
+    let address = document.getElementById('address')
+    let country = document.getElementById('country')
+    let alertSendPurchase = document.getElementById('alertSendPurchase')
+
+    let modal_alert = document.getElementById('modal_alert')
+    let cancelCard = document.getElementById('cancelCard')
+    let cancelBank = document.getElementById('cancelBank')
+    let confirmCard = document.getElementById('confirmCard')
+    let name = document.getElementById('name')
+    let credit_number = document.getElementById('credit_number')
+    let expireM = document.getElementById('expireM')
+    let expireY = document.getElementById('expireY')
+    let cvc = document.getElementById('cvc')
+    let confirmBank = document.getElementById('confirmBank')
+    let number_account = document.getElementById('number_account')
+    let owner_name = document.getElementById('owner_name')
+    let alert_bank = document.getElementById('modal_alert_bank')
+    let completePurchase =  document.getElementById('completePurchase')
+    let modal_body = document.getElementById('modal-body')
+    creditCard()
+    bankTransfer()
+    completePurchase.addEventListener('click',completeTransaction)
+    
 });

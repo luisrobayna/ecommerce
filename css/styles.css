@@ -411,6 +411,10 @@ footer {
   padding-bottom: 3rem;
 }
 
+#footerCart{
+  margin-top: 100px;
+}
+
 footer p {
   margin-bottom: .25rem;
 }
@@ -504,7 +508,9 @@ a.custom-card:hover {
 
 
 /*************Estilos para pagina CART.html**********************/
-
+#methodSend{
+  display: inline-block
+}
 #methodSend input{
   margin-left: 10px;
   color: rgb(66, 66, 66);
@@ -560,131 +566,68 @@ input[type="number"]
 
 /**********************************FORMAS DE PAGO****************************/
 
-#methodPurchase{
+.modal-body span{
   color: black;
-  width: 100%;
-  display: inline-block;
+  font-weight: bold;
 }
 
-.fa-chevron-circle-right{
-  font-size: 20px;
-  color: black;
-}
-
-#transferCard .fab{
-  color: black;
-  font-size: 70px;
-  margin-left: 30px;
-}
-
-.downArrow{
-  transform: rotate(90deg);
-  color: #0087F7;
-}
-
-#transferCard div{
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-#transferCard div label{
-  margin-left: 30px;
-  line-height: 20px;
-}
-
-
-#transferCard div input,
-#transferBank input{
-  margin-left: 10px;
-  color: rgb(66, 66, 66);
-  border: none;
-  outline: none;
-  border-bottom: 2px solid black;
-  
-}
-
-#monthExpired,
-#yearExpired,
-#codeCard{
-  width: 60px;
-}
-
-#transferCard span{
-  margin-left: 10px;
-  font-size: 20px;
-}
-
-.infoCard,
-.infoBank{
-  max-width: 521px !important;
-  background-color: #0087F7;
-  border-radius: 5px;
-}
-
-.infoCard label,
-.infoBank label{
-  margin-bottom: 30px;
-  color: white;
-}
-
-.infoBank label{
-  margin-left: 30px;
-}
-
-.infoCard label:nth-child(1),
-.infoBank label:nth-child(1){
-  margin-top: 30px;
-}
-
-.infoCard input,
-.infoBank input{
-  color: whitesmoke !important;
-  border-radius: 5px;
-  background-color: rgba(0, 135, 247, 1);
-}
-
-
-
-#monthExpired::placeholder,
-#yearExpired::placeholder,
-#nameCard::placeholder,
-#numberCard::placeholder,
-#codeCard::placeholder,
-#numberBank::placeholder,
-#ownerBank::placeholder{
-  color: white;
+.modal-body input{
+  width: 200px;
+  height: 40px;
+  padding: 10px;
   letter-spacing: 2px;
-}
-
-#transferBank{
-  width: 100%;
-  margin-top: 20px;
-}
-
-#transferBank select{
-  width: 150px;
-  background-color: #158ff3;
-  color: white;
   border: none;
-  outline: none;
-  border: 2px solid #1d7bc7;
-  border-radius: 5px;
-  text-align: center;
-  letter-spacing: 2px;
+  border-bottom: 1px solid black;
+  border-radius: 4px;
   margin-bottom: 15px;
-  margin-top: 20px;
+  margin-left: 5px;
+  outline: none;
+}
+
+.modal-body #expireM,
+.modal-body #expireY{
+  width: 50px;
+}
+
+.modal-body .cvc{
   margin-left: 30px;
 }
 
 
+.modal-body #cvc{
+  width: 50px;
+}
+
+
+.modal-body .alertMessagge{
+  background-color: red;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: white;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+
+
+
+#alertSendPurchase{
+  display: none;
+  color: white;
+  background-color: red;
+  width: auto;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
 
 #totalEnvio{
-  display: inline-block;
-  width: 350px;
-  position: absolute;
-  top: 826px;
-  right: 2px;
+  width: auto;
+  float: right;
+  margin-top: 30px;
+  
 }
 
 #totalEnvio p:nth-child(1),
@@ -702,7 +645,7 @@ input[type="number"]
   height: 40px;
   text-align: center;
   margin-top: -35px;
-  margin-left: 180px;
+  margin-left: 100px;
   margin-bottom: 25px;
   font-size: 60px;
 }
@@ -722,28 +665,59 @@ input[type="number"]
   padding-right: 30px;
 }
 
-@media (max-width:991px){
-  #totalEnvio{
-    right: 60px;
-    top: 826px;
-  }
-  
+#completePurchase{
+  background-color: rgb(37, 158, 37);
+  color: white;
+  margin-top: 60px;
+  position: absolute;
+  left: 60px;
+  margin-bottom: 100px;
+}
+
+#modal-body .error,
+#modal-body .correct{
+  background-color: rgb(228, 73, 73);
+  color: white;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 4px 0px black;
+}
+
+#modal-body .error i,
+#modal-body .correct i {
+  font-size: 30px;
+  margin-left: 10px;
+  color: red;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 100%;
+  position: relative;
+  top: 3px;
+  left: 17px;
+}
+
+#modal-body .correct{
+  background-color: rgb(27, 153, 27);
+}
+
+#modal-body .correct i{
+  color: rgb(21, 150, 21);
+  border: 1px solid rgb(65, 163, 65);
+  left: 21px;
 }
 
 @media (max-width:767px){
   #totalEnvio{
-    position: relative;
-    top: 21px;
-    right: -190px;
+    display: block;
+    float: none;
+    width: 300px;
+    margin-top: 20px;
+    margin-bottom: 30px;
   }
 }
 
-@media (max-width:540px){
-  #totalEnvio{
-    top: 21px;
-    right: -138px;
-  }
-}
 
 
 
